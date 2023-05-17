@@ -14,6 +14,13 @@
 
 }
 
+@media (prefers-color-scheme: dark) {
+    * {
+        color: black;
+
+    }
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -21,6 +28,7 @@ body {
     width: 100%;
     padding: 0;
     background-color: white;
+    color: #000000;
 
 
 }
@@ -34,7 +42,7 @@ body {
 }
 
 main {
-    background: var(--surface-1);
+    background: var(--gray-1);
 }
 
 .top {
@@ -97,7 +105,7 @@ nav a {
 }
 
 menu>.menu-item {
-    background: var(--surface-2);
+    background: var(--gray-3);
 }
 
 .menu-item>menu>.menu-item {
@@ -174,7 +182,7 @@ main {
     width: 100%;
     align-items: center;
     margin: auto;
-    background: var(--surface-1);
+    background: var(--gray-1);
 }
 
 .scroll-menu {
