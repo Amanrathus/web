@@ -33,16 +33,67 @@ body {
 
 }
 
-.search-bar {
-    padding-top: 1em;
+
+
+
+.header-top-right {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
 }
 
-.search-bar input {
-    all: revert;
+.search-bar {
+    width: clamp(100px, 70%, 750px);
+    display: flex;
+    flex-wrap: nowrap;
 }
+
+.sign-up {
+    background-color: var(--green-5);
+}
+
+.search-bar>.search-input {
+    all: revert;
+    padding: 12px 20px;
+    flex: 1;
+    font-size: 14px;
+    border: 1px solid #c8c8c8;
+    border-right: 0px;
+    border-top-left-radius: 4px 4px;
+    border-bottom-left-radius: 4px 4px;
+    width: 100%;
+}
+
+.search-bar>.search-button {
+    all: revert;
+    padding: 12px 15px;
+    font-size: 16px;
+    outline: none;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    border: solid 1px #c8c8c8;
+    border-right: 0px;
+    background: var(--blue-7);
+    border-top-right-radius: 4px 4px;
+    border-bottom-right-radius: 4px 4px;
+    position: relative;
+    left: -5px;
+}
+
+.search-button:hover {
+    text-decoration: none;
+    background: var(--blue-6);
+}
+
+
+
+
 
 main {
     background: var(--gray-1);
+    padding-top: var(--gap-space);
+    padding-bottom: 2em;
 }
 
 .top {
@@ -52,30 +103,40 @@ main {
 }
 
 header {
+    position: sticky;
     margin-top: 1em;
     width: 100%;
-
     max-width: 1200px;
     display: flex;
     align-content: center;
-    justify-content: space-between;
+    justify-content: center;
+
     gap: var(--gap-space);
-    height: 8em;
-    max-width: 1200px;
+
+    flex-wrap: wrap;
+
 }
 
-header>img {
-    height: 7.5em;
-    width: auto;
+header>.logo {
+    flex: 0 0 auto;
+    max-height: 7.5em;
+    max-width: 200px;
+}
+
+.logo>img {
+    max-height: 100%;
+    object-fit: cover;
+
 
 }
 
 .header-right {
     height: 100%;
-    width: 70%;
+    flex: 1 0 200px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
+    gap: var(--gap-space);
 
 
 }
@@ -88,6 +149,7 @@ ul {
 
 
 nav {
+
     width: 100%;
     max-width: 1400px;
     display: flex;
@@ -98,7 +160,7 @@ nav a {
     width: 100%;
     color: black;
     margin: 0px 6px 6px 0px;
-    padding: 20px 40px;
+    padding: var(--gap-space) 0 var(--gap-space) 10px;
     box-sizing: border-box;
     border-radius: 3px;
     position: relative;
@@ -136,6 +198,7 @@ nav>menu {
 
 menu {
     display: flex;
+    flex: 1 1 100px;
     flex-direction: column;
     justify-content: flex-start;
     gap: 0;
@@ -171,6 +234,7 @@ nav>menu>.menu-item .menu-item menu {
 
 
 .scroll-section {
+    margin: 4em 0;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -230,9 +294,15 @@ main {
     background: var(--green-3);
 }
 
-@media (width<650px) {
+@media (min-width: 450px) {
     .scroll-list {
-        width: 450px;
+        grid-auto-columns: calc(calc(100%/2) - var(--gap-space));
+    }
+}
+
+@media (width<450px) {
+    .scroll-list {
+        width: 95vw;
         grid-auto-columns: calc(calc(100%/2) - var(--gap-space));
     }
 }
@@ -291,7 +361,8 @@ main {
 }
 
 .product-grid {
-    width: clamp(450px, 90vw, 1200px);
+    margin: 3em 0;
+    width: clamp(360px, 90vw, 1200px);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
     gap: var(--gap-space);
@@ -306,6 +377,7 @@ main {
 .product-card {
     margin: 4px;
     box-shadow: var(--shadow-3);
+    background-color: white;
     padding: 0;
     display: flex;
     justify-content: flex-start;
@@ -369,6 +441,27 @@ main {
     opacity: 1;
 }
 
+.product-selection-grid {
+    margin: 3em 0;
+    width: clamp(360px, 90vw, 1200px);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-auto-rows: 100px;
+    gap: calc(var(--gap-space)/2);
+}
+
+.big-cell {
+    grid-row: auto/span 2;
+    background-color: #41B3A3;
+}
+
+.small-cell {
+    background-color: #E27D60;
+}
+
+.square {
+    min-height: 150px;
+}
 
 .footer-div {
     display: flex;
@@ -385,7 +478,7 @@ main {
 
 footer {
     padding-top: 2em;
-
+    padding: 2em 1em 0 1em;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
